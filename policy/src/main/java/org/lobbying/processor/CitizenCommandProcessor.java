@@ -1,10 +1,10 @@
-package org.lobbying.processors;
+package org.lobbying.processor;
 
 import com.opencredo.concursus.domain.events.state.StateRepository;
 import com.opencredo.concursus.domain.time.StreamTimestamp;
 import com.opencredo.concursus.mapping.events.methods.proxying.ProxyingEventBus;
 import com.opencredo.concursus.spring.commands.processing.CommandHandler;
-import org.lobbying.domain.Citizen;
+import org.lobbying.Citizen;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @CommandHandler

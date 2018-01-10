@@ -5,8 +5,6 @@ import com.opencredo.concursus.domain.events.state.StateRepository;
 import com.opencredo.concursus.mapping.events.methods.state.DispatchingStateRepository;
 import com.opencredo.concursus.spring.commands.CommandSystemBeans;
 import com.opencredo.concursus.spring.events.EventSystemBeans;
-import org.lobbying.domain.Citizen;
-import org.lobbying.domain.Policy;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
