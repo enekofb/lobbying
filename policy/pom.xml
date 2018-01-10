@@ -77,13 +77,19 @@
         <dependency>
             <groupId>com.opencredo</groupId>
             <artifactId>concursus-mapping</artifactId>
-            <version>0.2</version>
+            <version>0.6</version>
         </dependency>
 
         <dependency>
             <groupId>com.opencredo</groupId>
             <artifactId>concursus-domain-json</artifactId>
-            <version>0.2</version>
+            <version>0.6</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.opencredo</groupId>
+            <artifactId>concursus-spring</artifactId>
+            <version>0.6</version>
         </dependency>
 
         <dependency>
