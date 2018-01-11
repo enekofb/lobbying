@@ -1,4 +1,4 @@
-package org.lobbying;
+package org.lobbying.domain;
 
 import com.opencredo.concursus.domain.time.StreamTimestamp;
 import com.opencredo.concursus.mapping.annotations.HandlesCommandsFor;
@@ -12,7 +12,7 @@ import lombok.Getter;
  */
 @HandlesEventsFor("policy")
 @Getter
-public final class Policy {
+public final class PolicyState {
 
     @HandlesCommandsFor("policy")
     public interface Commands {
@@ -28,14 +28,14 @@ public final class Policy {
     private final String id;
     private String name;
 
-    private Policy(String id, String name) {
+    private PolicyState(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
     @HandlesEvent
-    public static Policy created(String citizenId, String citizenName) {
-        return new Policy(citizenId, citizenName);
+    public static PolicyState created(String citizenId, String citizenName) {
+        return new PolicyState(citizenId, citizenName);
     }
 
 

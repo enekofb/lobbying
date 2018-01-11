@@ -3,21 +3,19 @@ package org.lobbying;
 import com.opencredo.concursus.domain.events.state.StateRepository;
 import com.opencredo.concursus.domain.time.StreamTimestamp;
 import com.opencredo.concursus.mapping.commands.methods.proxying.CommandProxyFactory;
-import com.opencredo.concursus.spring.commands.CommandSystemBeans;
-import com.opencredo.concursus.spring.events.EventSystemBeans;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.lobbying.domain.Citizen;
+import org.lobbying.domain.PolicyState;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
 
 /**
  * Created by eneko on 08/01/18.
  */
-@SpringBootTest(classes = { EventSystemBeans.class,CommandSystemBeans.class, PolicyApplication.class })
-@ContextConfiguration(classes = PolicyApplication.class)
+//@SpringBootTest(classes = { EventSystemBeans.class,CommandSystemBeans.class, PolicyApplication.class })
+//@ContextConfiguration(classes = PolicyApplication.class)
 public class TrackPolicyStepdefs{
 
     @Autowired
@@ -27,19 +25,19 @@ public class TrackPolicyStepdefs{
     public StateRepository<Citizen> citizenStateRepository;
 
     @Autowired
-    public StateRepository<Policy> policyStateRepository;
+    public StateRepository<PolicyState> policyStateRepository;
 
     private Citizen.Commands citizenCommands;
 
-    private Policy.Commands policyCommands;
+    private PolicyState.Commands policyCommands;
 
     private Citizen citizen;
 
-    private Policy policy;
+    private PolicyState policy;
 
     public TrackPolicyStepdefs(@Autowired CommandProxyFactory commandBus){
         citizenCommands =commandBus.getProxy(Citizen.Commands.class);
-        policyCommands =commandBus.getProxy(Policy.Commands.class);
+        policyCommands =commandBus.getProxy(PolicyState.Commands.class);
     }
 
     @When("^I track the policy$")

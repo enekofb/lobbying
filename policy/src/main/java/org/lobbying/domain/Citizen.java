@@ -1,4 +1,4 @@
-package org.lobbying;
+package org.lobbying.domain;
 
 import com.opencredo.concursus.domain.time.StreamTimestamp;
 import com.opencredo.concursus.mapping.annotations.HandlesCommandsFor;
