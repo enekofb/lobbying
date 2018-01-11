@@ -1,11 +1,11 @@
-package org.lobbying.dao;
+package org.lobbying.dto;
 
 import lombok.Builder;
 import lombok.Getter;
 
 @Builder
 @Getter
-public class CreatePolicyDAO {
+public class CreatePolicyDTO {
 
     private String name;
     private String description;

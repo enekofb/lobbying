@@ -5,18 +5,17 @@ import com.opencredo.concursus.spring.events.EventSystemBeans;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.lobbying.dao.CreatePolicyDAO;
-import org.lobbying.dao.GetPolicyDAO;
-import org.lobbying.domain.Policy;
+import org.lobbying.dto.CreatePolicyDTO;
+import org.lobbying.dto.PolicyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.ContextConfiguration;
 
+import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.hamcrest.core.IsNull.notNullValue;
 
 @SpringBootTest(classes = { EventSystemBeans.class,CommandSystemBeans.class, PolicyApplication.class },
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -33,27 +32,26 @@ public class CreatePolicyStepDefs {
     @Autowired
     private TestRestTemplate policyClient;
 
-    private CreatePolicyDAO createPolicyDAO;
+    private CreatePolicyDTO createPolicyDTO;
 
-    private String createdPolicyId;
+    private PolicyDTO createdPolicy;
 
     @Given("^I want to create a policy with name \"([^\"]*)\" and description \"([^\"]*)\"$")
     public void iWantToCreateAPolicyWithNameAndDescription(String policyName, String policyDescription) throws Throwable {
-        createPolicyDAO = CreatePolicyDAO.builder().name(policyName).description(policyDescription).build();
-        assertThat(createPolicyDAO.getDescription(), equalTo(policyDescription));
-        assertThat(createPolicyDAO.getName(), equalTo(policyName));
+        createPolicyDTO = CreatePolicyDTO.builder().name(policyName).description(policyDescription).build();
+        assertThat(createPolicyDTO.getDescription(), equalTo(policyDescription));
+        assertThat(createPolicyDTO.getName(), equalTo(policyName));
     }
 
     @When("^I create policy$")
     public void iCreatePolicy() throws Throwable {
-        CreatePolicyDAO createdPolicy = policyClient.postForObject(CREATE_POLICY_URL, createPolicyDAO, CreatePolicyDAO.class,port);
-        assertThat(createdPolicy, notNullValue());
+        createdPolicy = policyClient.postForObject(CREATE_POLICY_URL, createPolicyDTO, PolicyDTO.class,port);
+        assertThat(createdPolicy.getName(),equalTo(createPolicyDTO.getName()));
     }
 
     @Then("^policy has been created$")
     public void policyHasBeenCreated() throws Throwable {
-        GetPolicyDAO getPolicyDao = policyClient.getForObject(GET_POLICY_BY_ID_URL, GetPolicyDAO.class, port,createdPolicyId);
-        assertThat(createPolicyDAO.getDescription(), equals(getPolicyDao.getDescription()));
-        assertThat(createPolicyDAO.getName(), equals(getPolicyDao.getName()));
+        PolicyDTO policyDTO = policyClient.getForObject(GET_POLICY_BY_ID_URL, PolicyDTO.class, port,createdPolicy.getId());
+        assertThat(createdPolicy.getId(),equalTo(policyDTO.getId()));
     }
 }
