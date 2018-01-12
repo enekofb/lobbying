@@ -9,10 +9,7 @@ node {
 
     }
     stage('Build a Maven project') {
-        dir("policy") {
-            sh "'${mvnHome}/bin/mvn' -Dmaven.test.failure.ignore clean verify"
-        }
-
+        sh "'${mvnHome}/bin/mvn' clean verify"
     }
 
 }
