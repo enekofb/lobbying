@@ -1,7 +1,5 @@
 package org.lobbying;
 
-import com.opencredo.concursus.spring.commands.CommandSystemBeans;
-import com.opencredo.concursus.spring.events.EventSystemBeans;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -13,11 +11,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.test.context.ContextConfiguration;
 
-import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-@SpringBootTest(classes = { EventSystemBeans.class,CommandSystemBeans.class, PolicyApplication.class },
+@SpringBootTest(classes = {PolicyApplication.class },
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration
 public class CreatePolicyStepDefs {

@@ -72,29 +72,6 @@
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>com.opencredo</groupId>
-            <artifactId>concursus-mapping</artifactId>
-            <version>0.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.opencredo</groupId>
-            <artifactId>concursus-domain-json</artifactId>
-            <version>0.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.opencredo</groupId>
-            <artifactId>concursus-spring</artifactId>
-            <version>0.6</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-        </dependency>
     </dependencies>
 
     <build>
