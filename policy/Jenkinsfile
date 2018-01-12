@@ -1,0 +1,15 @@
+podTemplate(label: 'build-pod', containers: [
+    containerTemplate(name: 'maven', image: 'maven:3.3.9-jdk-8-alpine', ttyEnabled: true, command: 'cat')
+  ]) {
+
+    node() {
+            container('maven') {
+                stagec('Checkout code'){
+                    scm checkout
+                }
+                stage('Build a Maven project') {
+                    sh 'mvn clean verify'
+                }
+            }
+    }
+}
