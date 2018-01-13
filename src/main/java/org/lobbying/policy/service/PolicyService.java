@@ -1,10 +1,8 @@
-package org.lobbying.service;
+package org.lobbying.policy.service;
 
-import org.lobbying.domain.Policy;
+import org.lobbying.policy.domain.Policy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.UUID;
 
 @Component
 public class PolicyService {

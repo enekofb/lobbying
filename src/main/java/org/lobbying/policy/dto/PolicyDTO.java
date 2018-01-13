@@ -1,4 +1,4 @@
-package org.lobbying.dto;
+package org.lobbying.policy.dto;
 
 import lombok.*;
 
