@@ -25,6 +25,6 @@ public class CitizenService {
 
     public Citizen getCitizenById(String citizenId) {
         return citizenRepository.findOne(citizenId);
-
     }
+
 }

@@ -4,7 +4,8 @@ import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
-import java.util.UUID;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by eneko on 10/01/18.
@@ -18,4 +19,14 @@ public class Policy {
     private String name;
     private String description;
 
+    private Map<String,PolicyUpdate> updates;
+
+    public PolicyUpdate update(PolicyUpdate policyUpdate){
+        updates.put(policyUpdate.getId(), policyUpdate);
+        return policyUpdate;
+    }
+
+    public PolicyUpdate getUpdateById(String policyUpdateId) {
+        return this.updates.get(policyUpdateId);
+    }
 }

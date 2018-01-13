@@ -6,12 +6,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lobbying.citizen.domain.Citizen;
 import org.lobbying.citizen.repository.CitizenRepository;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.*;

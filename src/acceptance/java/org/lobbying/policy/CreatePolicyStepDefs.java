@@ -3,29 +3,18 @@ package org.lobbying.policy;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import org.lobbying.common.BackgroundPolicyStepDefs;
 import org.lobbying.common.CommonPolicyStepDefs;
 import org.lobbying.policy.dto.CreatePolicyDTO;
 import org.lobbying.policy.dto.PolicyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.LocalServerPort;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.test.context.ContextConfiguration;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
 public class CreatePolicyStepDefs extends CommonPolicyStepDefs {
-
-    public static final String CREATE_POLICY_URL = "http://localhost:{port}/policies";
-
-    private static final String GET_POLICY_BY_ID_URL = "http://localhost:{port}/policies/{id}";
-
-    @LocalServerPort
-    private int port;
-
-    @Autowired
-    private TestRestTemplate policyClient;
 
     private CreatePolicyDTO createPolicyDTO;
 

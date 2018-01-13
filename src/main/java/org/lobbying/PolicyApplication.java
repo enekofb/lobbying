@@ -1,5 +1,7 @@
 package org.lobbying;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.client.RestTemplateBuilder;
@@ -14,6 +16,8 @@ import org.springframework.web.client.RestTemplate;
 		PolicyApplication.class },
 		basePackages = "org.lobbying")
 public class PolicyApplication {
+
+	Logger LOGGER = LoggerFactory.getLogger(PolicyApplication.class);
 
 	public static void main(String[] args) {
 		SpringApplication.run(PolicyApplication.class, args);

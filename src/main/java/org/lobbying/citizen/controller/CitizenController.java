@@ -6,7 +6,6 @@ import org.lobbying.citizen.dto.CreateCitizenDTO;
 import org.lobbying.citizen.mapper.CitizenMapper;
 import org.lobbying.citizen.service.CitizenService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -21,7 +20,7 @@ public class CitizenController {
     @Autowired
     private CitizenService citizenService;
 
-    public  CitizenController(CitizenService citizenService,CitizenMapper citizenMapper){
+    public  CitizenController(CitizenService citizenService, CitizenMapper citizenMapper){
         this.citizenService = citizenService;
         this.citizenMapper = citizenMapper;
     }
@@ -38,6 +37,7 @@ public class CitizenController {
         Citizen citizenFound =  citizenService.getCitizenById(citizenId);
         return  citizenMapper.to(citizenFound);
     }
+
 
 
 }
