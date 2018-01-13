@@ -1,21 +1,17 @@
-package org.lobbying.domain;
+package org.lobbying.citizen.domain;
 
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 
-import java.util.UUID;
-
 /**
- * Created by eneko on 10/01/18.
+ * Created by eneko on 13/01/18.
  */
-@Data
 @Builder
-public class Policy {
-
+@Data
+public class Citizen {
     @Id
     private String id;
     private String name;
-    private String description;
-
+    private String email;
 }

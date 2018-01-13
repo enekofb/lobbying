@@ -5,6 +5,5 @@ logging:
 spring:
   data:
     mongodb:
-      host: localhost
-      port: 27017
+      uri: mongodb://mongodb:27017
       database: policy

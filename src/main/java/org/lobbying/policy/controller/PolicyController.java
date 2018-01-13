@@ -1,10 +1,10 @@
-package org.lobbying.controller;
+package org.lobbying.policy.controller;
 
-import org.lobbying.dto.CreatePolicyDTO;
-import org.lobbying.domain.Policy;
-import org.lobbying.dto.PolicyDTO;
-import org.lobbying.mapper.PolicyMapper;
-import org.lobbying.service.PolicyService;
+import org.lobbying.policy.dto.CreatePolicyDTO;
+import org.lobbying.policy.domain.Policy;
+import org.lobbying.policy.dto.PolicyDTO;
+import org.lobbying.policy.mapper.PolicyMapper;
+import org.lobbying.policy.service.PolicyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

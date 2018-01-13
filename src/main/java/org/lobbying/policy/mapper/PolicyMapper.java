@@ -1,8 +1,8 @@
-package org.lobbying.mapper;
+package org.lobbying.policy.mapper;
 
-import org.lobbying.dto.CreatePolicyDTO;
-import org.lobbying.domain.Policy;
-import org.lobbying.dto.PolicyDTO;
+import org.lobbying.policy.dto.CreatePolicyDTO;
+import org.lobbying.policy.domain.Policy;
+import org.lobbying.policy.dto.PolicyDTO;
 import org.springframework.stereotype.Component;
 
 /**
