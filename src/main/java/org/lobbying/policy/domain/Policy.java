@@ -1,4 +1,4 @@
-package org.lobbying.domain;
+package org.lobbying.policy.domain;
 
 import lombok.Builder;
 import lombok.Data;

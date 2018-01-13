@@ -1,10 +1,11 @@
-package org.lobbying;
+package org.lobbying.policy;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.lobbying.dto.CreatePolicyDTO;
-import org.lobbying.dto.PolicyDTO;
+import org.lobbying.common.CommonPolicyStepDefs;
+import org.lobbying.policy.dto.CreatePolicyDTO;
+import org.lobbying.policy.dto.PolicyDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -14,10 +15,7 @@ import org.springframework.test.context.ContextConfiguration;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-@SpringBootTest(classes = {PolicyApplication.class },
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@ContextConfiguration
-public class CreatePolicyStepDefs {
+public class CreatePolicyStepDefs extends CommonPolicyStepDefs {
 
     public static final String CREATE_POLICY_URL = "http://localhost:{port}/policies";
 
