@@ -42,7 +42,6 @@ public class CitizenMapperTest {
     @Test
     public void to() throws Exception {
 
-
         String id = "1234";
         String email = "john@gmail.com";
         String name = "john";
