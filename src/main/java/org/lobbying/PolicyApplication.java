@@ -1,4 +1,4 @@
-package org.lobbying.policy;
+package org.lobbying;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

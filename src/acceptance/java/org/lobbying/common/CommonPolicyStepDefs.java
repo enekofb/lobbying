@@ -1,6 +1,6 @@
 package org.lobbying.common;
 
-import org.lobbying.policy.PolicyApplication;
+import org.lobbying.PolicyApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ContextConfiguration;
 
