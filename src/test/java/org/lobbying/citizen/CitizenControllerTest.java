@@ -12,11 +12,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
+import static org.hamcrest.Matchers.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CitizenControllerTest {
@@ -85,5 +84,20 @@ public class CitizenControllerTest {
 
     }
 
+    @Test
+    public void trackPolicy() throws Exception {
+
+        String citizenId = "1234";
+        String policyId = "1234";
+
+        when(citizenService.trackPolicy(citizenId,policyId)).thenReturn(true);
+
+        boolean policyTracked = citizenController.trackPolicy(citizenId,policyId);
+
+        assertThat(policyTracked,is(Boolean.TRUE));
+
+
+
+    }
 
 }

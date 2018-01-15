@@ -1,11 +1,11 @@
 package org.lobbying.common;
 
 import org.lobbying.PolicyApplication;
-import org.lobbying.policy.domain.Policy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
 /**
@@ -14,7 +14,8 @@ import org.springframework.test.context.ContextConfiguration;
 @SpringBootTest(classes = {PolicyApplication.class },
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ContextConfiguration
-public class CommonPolicyStepDefs {
+@ActiveProfiles("test")
+public class CommonLobbyingStepDefs {
 
     // POLICY URLS
     public static final String CREATE_POLICY_URL = "http://localhost:{port}/policies";
@@ -26,7 +27,7 @@ public class CommonPolicyStepDefs {
     public static final String GET_CITIZEN_BY_ID_URL = "http://localhost:{port}/citizens/{id}";
 
     @Autowired
-    protected TestRestTemplate policyClient;
+    protected TestRestTemplate restTemplate;
 
     @LocalServerPort
     protected int port;
@@ -36,7 +37,7 @@ public class CommonPolicyStepDefs {
     public PolicyWorld getPolicyWorld() {
         if(policyWorld == null){
             policyWorld = PolicyWorld.builder()
-                    .policyClient(policyClient)
+                    .restTemplate(restTemplate)
                     .port(port)
                     .build();
         }

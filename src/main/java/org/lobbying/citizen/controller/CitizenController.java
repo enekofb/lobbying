@@ -1,6 +1,7 @@
 package org.lobbying.citizen.controller;
 
 import org.lobbying.citizen.domain.Citizen;
+import org.lobbying.citizen.domain.Policy;
 import org.lobbying.citizen.dto.CitizenDTO;
 import org.lobbying.citizen.dto.CreateCitizenDTO;
 import org.lobbying.citizen.mapper.CitizenMapper;
@@ -36,6 +37,18 @@ public class CitizenController {
     public CitizenDTO getCitizenById(@PathVariable("id") String citizenId) {
         Citizen citizenFound =  citizenService.getCitizenById(citizenId);
         return  citizenMapper.to(citizenFound);
+    }
+
+    @PutMapping(path = "/citizens/{citizenId}/policies/{policyId}")
+    public boolean trackPolicy(@PathVariable("citizenId") String citizenId,
+                                  @PathVariable("policyID") String policyId)  {
+        return citizenService.trackPolicy(citizenId,policyId);
+    }
+
+    @GetMapping(path = "/citizens/{citizenId}/policies")
+    public boolean getTrackedPolicyById(@PathVariable("citizenId") String citizenId,
+                               @RequestParam("policyId") String policyId)  {
+        return citizenService.isCitizenTrackingPolicyById(citizenId, policyId);
     }
 
 

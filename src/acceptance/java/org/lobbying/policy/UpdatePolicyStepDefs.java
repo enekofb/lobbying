@@ -3,8 +3,7 @@ package org.lobbying.policy;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import org.lobbying.common.CommonPolicyStepDefs;
-import org.lobbying.policy.domain.PolicyUpdate;
+import org.lobbying.common.CommonLobbyingStepDefs;
 import org.lobbying.policy.dto.CreatePolicyUpdateDTO;
 import org.lobbying.policy.dto.PolicyUpdateDTO;
 
@@ -18,7 +17,7 @@ import static org.hamcrest.core.IsEqual.equalTo;
 /**
  * Created by eneko on 13/01/18.
  */
-public class UpdatePolicyStepDefs extends CommonPolicyStepDefs{
+public class UpdatePolicyStepDefs extends CommonLobbyingStepDefs {
 
     private CreatePolicyUpdateDTO createPolicyUpdateDto;
     private PolicyUpdateDTO policyUpdatedDto;
@@ -29,7 +28,7 @@ public class UpdatePolicyStepDefs extends CommonPolicyStepDefs{
         createPolicyUpdateDto = CreatePolicyUpdateDTO
                 .builder()
                 .policyId(getPolicyWorld()
-                        .getPolicy()
+                        .getPolicyDTO()
                         .getId())
                 .updateTimestamp(Instant.now().toString())
                 .updateContent("udpated").build();

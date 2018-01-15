@@ -1,0 +1,9 @@
+logging:
+  level:
+    root: INFO
+
+spring.jpa.generate-ddl: true
+spring.jpa.hibernate.ddl-auto: create-drop
+
+policy:
+  url: http://localhost:8080/policies
