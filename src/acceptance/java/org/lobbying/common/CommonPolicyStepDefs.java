@@ -17,16 +17,24 @@ import org.springframework.test.context.ContextConfiguration;
 public class CommonPolicyStepDefs {
 
     // POLICY URLS
-    public static final String CREATE_POLICY_URL = "http://localhost:{port}/policies";
-    public static final String UPDATE_POLICY_URL = "http://localhost:{port}/policies/{id}/updates";
-    public static final String GET_POLICY_BY_ID_URL = "http://localhost:{port}/policies/{id}";
+    protected static final String CREATE_POLICY_URL = "http://localhost:{port}/policies";
+    protected static final String UPDATE_POLICY_URL = "http://localhost:{port}/policies/{id}/updates";
+    protected static final String GET_POLICY_BY_ID_URL = "http://localhost:{port}/policies/{id}";
 
     // CITIZEN URLS
-    public static final String CREATE_CITIZEN_URL = "http://localhost:{port}/citizens";
-    public static final String GET_CITIZEN_BY_ID_URL = "http://localhost:{port}/citizens/{id}";
+    protected static final String CREATE_CITIZEN_URL = "http://localhost:{port}/citizens";
+    protected static final String GET_CITIZEN_BY_ID_URL = "http://localhost:{port}/citizens/{id}";
+
+    //MEDIA SOURCE URLS
+    protected static final String CREATE_MEDIA_SOURCE_URL = "http://localhost:{port}/media-sources";
+    protected static final String GET_MEDIA_SOURCE_BY_ID_URL = "http://localhost:{port}/media-sources/{id}";
 
     @Autowired
     protected TestRestTemplate policyClient;
+
+    @Autowired
+    protected TestRestTemplate mediaSourceClient;
+
 
     @LocalServerPort
     protected int port;
