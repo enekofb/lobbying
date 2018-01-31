@@ -6,8 +6,6 @@ Feature: Update policy
 
   Background:
     Given a policy with name "policy1" and description "policy1 description"
-    Given a policy with name "policy1" and description "policy1 description"
-
 
   Scenario: Can update a policy
     Given the system has gathered an update for the previous policy

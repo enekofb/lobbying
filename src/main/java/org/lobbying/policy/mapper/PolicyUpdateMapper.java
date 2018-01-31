@@ -15,7 +15,6 @@ import java.util.UUID;
 public class PolicyUpdateMapper {
     public PolicyUpdate from(CreatePolicyUpdateDTO createPolicyUpdateDTO) {
         return PolicyUpdate.builder()
-                .id(UUID.randomUUID().toString())
                 .policyId(createPolicyUpdateDTO.getPolicyId())
                 .updateTimestamp(Instant.parse(createPolicyUpdateDTO.getUpdateTimestamp()))
                 .updateContent(createPolicyUpdateDTO.getUpdateContent())
