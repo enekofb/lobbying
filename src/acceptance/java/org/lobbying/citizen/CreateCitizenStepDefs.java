@@ -5,8 +5,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.lobbying.citizen.dto.CitizenDTO;
 import org.lobbying.citizen.dto.CreateCitizenDTO;
-import org.lobbying.common.BackgroundPolicyStepDefs;
-import org.lobbying.common.CommonPolicyStepDefs;
+import org.lobbying.common.CommonLobbyingStepDefs;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.LocalServerPort;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -14,7 +13,7 @@ import org.springframework.boot.test.web.client.TestRestTemplate;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.IsEqual.equalTo;
 
-public class CreateCitizenStepDefs extends CommonPolicyStepDefs {
+public class CreateCitizenStepDefs extends CommonLobbyingStepDefs {
 
 
     @LocalServerPort

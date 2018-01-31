@@ -10,6 +10,7 @@ import org.lobbying.policy.mapper.PolicyMapper;
 import org.lobbying.policy.mapper.PolicyUpdateMapper;
 import org.lobbying.policy.service.PolicyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,6 +20,7 @@ public class PolicyController {
     private PolicyService policyService;
 
     @Autowired
+    @Qualifier("policy")
     private PolicyMapper policyMapper;
 
     @Autowired

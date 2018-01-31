@@ -10,11 +10,13 @@ import org.springframework.stereotype.Component;
 import java.time.Instant;
 import java.util.HashMap;
 
+
 /**
  * Created by eneko on 11/01/18.
  */
-@Component
+//@Component
 public class PolicyMapper {
+
 
     public Policy from(CreatePolicyDTO createPolicyDto){
 
@@ -42,4 +44,11 @@ public class PolicyMapper {
                 .build();
     }
 
+    public Policy from(PolicyDTO policy) {
+        return Policy.builder()
+                .id(policy.getId())
+                .name(policy.getName())
+                .description(policy.getDescription())
+                .build();
+    }
 }

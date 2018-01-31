@@ -2,9 +2,11 @@ package org.lobbying.policy.domain;
 
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 
-import java.util.HashMap;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Map;
 
 /**
@@ -12,13 +14,16 @@ import java.util.Map;
  */
 @Data
 @Builder
+@Entity
 public class Policy {
 
     @Id
+    @GeneratedValue
     private String id;
     private String name;
     private String description;
 
+    @ElementCollection
     private Map<String,PolicyUpdate> updates;
 
     public PolicyUpdate update(PolicyUpdate policyUpdate){

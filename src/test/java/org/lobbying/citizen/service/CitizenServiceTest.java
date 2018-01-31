@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.lobbying.citizen.domain.Citizen;
 import org.lobbying.citizen.repository.CitizenRepository;
+import org.lobbying.policy.domain.Policy;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
 
@@ -22,7 +23,6 @@ import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CitizenServiceTest extends TestCase {
-
     private CitizenRepository citizenRepository;
 
     private CitizenService citizenService;
@@ -61,6 +61,26 @@ public class CitizenServiceTest extends TestCase {
 
         Citizen citizen = mock(Citizen.class);
         when(citizen.getId()).thenReturn(citizenId);
+
+        when(citizenRepository.findOne(citizenId)).thenReturn(citizen);
+
+        Citizen citizenFound = citizenService.getCitizenById(citizenId);
+
+        verify(citizenRepository).findOne(citizenId);
+
+        assertThat(citizenFound.getId(),equalTo(citizenId));
+
+    }
+
+    public void testTrackPolicy() throws Exception {
+
+        String citizenId = "1234";
+        String policyId = "2345";
+
+        Citizen citizen = mock(Citizen.class);
+        when(citizen.getId()).thenReturn(citizenId);
+
+        Policy policy = mock(Policy.class);
 
         when(citizenRepository.findOne(citizenId)).thenReturn(citizen);
 
