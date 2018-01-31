@@ -3,18 +3,21 @@ package org.lobbying.common;
 import org.lobbying.PolicyApplication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.embedded.LocalServerPort;
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 
 /**
  * Created by eneko on 13/01/18.
  */
-@SpringBootTest(classes = {PolicyApplication.class },
-        webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@SpringBootTest(classes = {PolicyApplication.class},
+        webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 @ContextConfiguration
 @ActiveProfiles("test")
+@AutoConfigureTestDatabase
 public class CommonLobbyingStepDefs {
 
     // POLICY URLS

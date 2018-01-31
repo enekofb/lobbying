@@ -100,4 +100,18 @@ public class CitizenControllerTest {
 
     }
 
+    @Test
+    public void isCitizenTrackingPolicyById() throws Exception {
+
+        String citizenId = "1234";
+        String policyId = "1234";
+
+        when(citizenService.isCitizenTrackingPolicyById(citizenId,policyId)).thenReturn(true);
+
+        boolean policyTracked = citizenController.isCitizenTrackingPolicyById(citizenId,policyId);
+
+        assertThat(policyTracked,is(Boolean.TRUE));
+
+    }
+
 }

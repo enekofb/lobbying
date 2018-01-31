@@ -18,7 +18,7 @@ public class PolicyClient {
     @Autowired
     private RestTemplate policyRestTemplate;
 
-    @Value("${policy.url}")
+    @Value("${lobbying.policies.url}")
     private String policyBaseUrl;
 
     public PolicyClient(RestTemplate policyRestTemplate, String policyBaseUrl) {
@@ -27,9 +27,16 @@ public class PolicyClient {
     }
 
 
+    protected String getPolicyByIdUrl(){
+        return  UriComponentsBuilder.
+                fromHttpUrl(policyBaseUrl)
+                .pathSegment("{id}")
+                .build().toString();
+
+    }
     public PolicyDTO getPolicyById(String policyId) {
         return policyRestTemplate
-                .getForObject(policyBaseUrl, PolicyDTO.class,policyId);
+                .getForObject(getPolicyByIdUrl(), PolicyDTO.class,policyId);
     }
 
 }

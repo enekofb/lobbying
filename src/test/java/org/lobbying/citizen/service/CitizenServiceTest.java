@@ -22,7 +22,8 @@ import static org.mockito.Mockito.when;
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class CitizenServiceTest extends TestCase {
+public class CitizenServiceTest {
+
     private CitizenRepository citizenRepository;
 
     private CitizenService citizenService;
@@ -72,6 +73,7 @@ public class CitizenServiceTest extends TestCase {
 
     }
 
+    @Test
     public void testTrackPolicy() throws Exception {
 
         String citizenId = "1234";
@@ -89,6 +91,26 @@ public class CitizenServiceTest extends TestCase {
         verify(citizenRepository).findOne(citizenId);
 
         assertThat(citizenFound.getId(),equalTo(citizenId));
+
+    }
+
+    @Test
+    public void testIsCitizenTrackingPolicyById() throws Exception {
+
+        String citizenId = "1234";
+        String policyId = "2345";
+
+        Citizen citizen = mock(Citizen.class);
+
+        when(citizenRepository.findOne(citizenId)).thenReturn(citizen);
+        when(citizen.isTrackingPolicyById(policyId)).thenReturn(true);
+
+        boolean policyFound = citizenService.isCitizenTrackingPolicyById(citizenId,policyId);
+
+        verify(citizenRepository).findOne(citizenId);
+        verify(citizen).isTrackingPolicyById(policyId);
+
+        assertEquals(policyFound,true);
 
     }
 

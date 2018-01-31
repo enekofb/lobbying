@@ -6,6 +6,7 @@ import org.lobbying.citizen.repository.CitizenRepository;
 import org.lobbying.citizen.domain.Policy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.util.Assert;
 
 /**
  * Created by eneko on 13/01/18.
@@ -34,8 +35,13 @@ public class CitizenService {
 
     public boolean trackPolicy(String citizenId, String policyId) {
         Policy policy = getPolicyById(policyId);
-        return getCitizenById(citizenId).trackPolicy(policy);
-
+        Assert.notNull(policy,"Cannot track non existing policy");
+        Citizen citizen = getCitizenById(citizenId);
+        boolean trackedPolicy = citizen.trackPolicy(policy);
+        if(trackedPolicy){
+            citizenRepository.save(citizen);
+        }
+        return trackedPolicy;
     }
 
     private Policy getPolicyById(String policyId) {

@@ -29,6 +29,8 @@ public class PolicyWorld {
     public static final String GET_CITIZEN_BY_ID_URL = "http://localhost:{port}/citizens/{id}";
     public static final String CITIZEN_TRACK_POLICY_URL = "http://localhost:{port}/citizens/{ciitizenId}/policies/{policyId}";
 
+    public static final String IS_CITIZEN_TRACKING_POLICY_URL = "http://localhost:{port}/citizens/{ciitizenId}/policies?policyId={policyId}";
+
     private TestRestTemplate restTemplate;
     private int port;
 
@@ -93,9 +95,9 @@ public class PolicyWorld {
         return true;
     }
 
-    public PolicyDTO getPolicyByCitizen(String citizenId, String policyId) {
+    public boolean isCitizenTrackingPolicyById(String citizenId, String policyId) {
         return restTemplate.
-                getForEntity(CITIZEN_TRACK_POLICY_URL,
-                        PolicyDTO.class, port,citizenId,policyId).getBody();
+                getForEntity(IS_CITIZEN_TRACKING_POLICY_URL,
+                        Boolean.class, port,citizenId,policyId).getBody();
     }
 }

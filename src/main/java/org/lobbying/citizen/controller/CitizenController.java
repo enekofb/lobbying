@@ -41,12 +41,12 @@ public class CitizenController {
 
     @PutMapping(path = "/citizens/{citizenId}/policies/{policyId}")
     public boolean trackPolicy(@PathVariable("citizenId") String citizenId,
-                                  @PathVariable("policyID") String policyId)  {
+                                  @PathVariable("policyId") String policyId)  {
         return citizenService.trackPolicy(citizenId,policyId);
     }
 
     @GetMapping(path = "/citizens/{citizenId}/policies")
-    public boolean getTrackedPolicyById(@PathVariable("citizenId") String citizenId,
+    public boolean isCitizenTrackingPolicyById(@PathVariable("citizenId") String citizenId,
                                @RequestParam("policyId") String policyId)  {
         return citizenService.isCitizenTrackingPolicyById(citizenId, policyId);
     }

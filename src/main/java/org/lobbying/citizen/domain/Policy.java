@@ -1,7 +1,9 @@
 package org.lobbying.citizen.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.lobbying.policy.domain.PolicyUpdate;
 import org.springframework.data.annotation.Id;
 
@@ -12,6 +14,8 @@ import java.util.Map;
 @Data
 @Builder
 @Embeddable
+@NoArgsConstructor
+@AllArgsConstructor
 public class Policy {
 
     private String id;

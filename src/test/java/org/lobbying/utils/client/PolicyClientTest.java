@@ -19,9 +19,9 @@ public class PolicyClientTest {
     private String policyBaseUrl = "http://www.lobbying.org/policies";
 
     @Before
-    public void setup(){
+    public void setup() {
         policyRestTemplate = mock(RestTemplate.class);
-        policyClient = new PolicyClient(policyRestTemplate,policyBaseUrl);
+        policyClient = new PolicyClient(policyRestTemplate, policyBaseUrl);
     }
 
     @Test
@@ -33,15 +33,15 @@ public class PolicyClientTest {
         when(policyDto.getId()).thenReturn(policyId);
 
         when(policyRestTemplate.
-                getForObject(policyBaseUrl,PolicyDTO.class,policyId))
+                getForObject(policyClient.getPolicyByIdUrl(), PolicyDTO.class, policyId))
                 .thenReturn(policyDto);
 
         PolicyDTO gottenPolicyDTO = policyClient.getPolicyById(policyId);
 
         verify(policyRestTemplate)
-                .getForObject(policyBaseUrl,PolicyDTO.class,policyId);
+                .getForObject(policyClient.getPolicyByIdUrl(), PolicyDTO.class, policyId);
 
-        assertThat(gottenPolicyDTO.getId(),equalTo(policyDto.getId()));
+        assertThat(gottenPolicyDTO.getId(), equalTo(policyDto.getId()));
 
     }
 
